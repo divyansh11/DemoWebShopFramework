@@ -1,6 +1,7 @@
 package com.demowebshoptest;
 
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest{
@@ -8,7 +9,12 @@ public class LoginTest extends BaseTest{
 	
 	@Test
 	public void verifyUserIsAbleToLoginWithValidCred() {
-		loginPage.Login();
+		String actualemail = loginPage.Login();
+		
+		String expectedEmail=landingPage.validateEmailisDisplayed();
+		
+		Assert.assertEquals(actualemail, expectedEmail,"Email is diplayed");
+
 		
 	
 	}

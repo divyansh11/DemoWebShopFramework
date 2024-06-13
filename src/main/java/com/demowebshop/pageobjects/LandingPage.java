@@ -21,12 +21,18 @@ public class LandingPage {
 	@FindBy(css="[value='Search']")
 	private WebElement searchBtn;
 	
+	@FindBy(css=".account")
+	private WebElement email;
 	
 	
 	
 	public void searchProduct(String name) {
 		searchBox.sendKeys(name);
 		searchBtn.click();
+	}
+	
+	public String validateEmailisDisplayed() {
+		return email.getText();
 	}
 
 	
